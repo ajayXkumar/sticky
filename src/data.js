@@ -3,7 +3,7 @@ const notes=
 [
     {
         id:1,
-        pin:"/pin-grey.png",
+        pin:"/pin-pink.png",
         colors:"#F9B572",
         heading:"first",
         discrip:"hellonsfbafbba fafb "
@@ -19,14 +19,14 @@ const notes=
     },
     {
         id:3,
-        pin:"/pin-red.png",
+        pin:"/pin-cyan.png",
         colors:"#B0D9B1",
         heading:"first",
         discrip:"hellonsfbafbba fafb "  
     },
     {
         id:4,
-        pin:"/pin-red.png",
+        pin:"/pin-yellow.png",
         colors:"#B0D9B1",
         heading:"first",
         discrip:"hellonsfbafbba fafb "
@@ -42,7 +42,7 @@ const notes=
     },
     {
         id:6,
-        pin:"/pin-red.png",
+        pin:"/pin-green.png",
         colors:"#B0D9B1",
         heading:"first",
         discrip:"hellonsfbafbba fafb "
@@ -50,7 +50,7 @@ const notes=
     },
     {
         id:7,
-        pin:"/pin-red.png",
+        pin:"/pin-purple.png",
         colors:"#B0D9B1",
         heading:"first",
         discrip:"hellonsfbafbba fafb "
@@ -66,7 +66,7 @@ const notes=
     },
     {
         id:9,
-        pin:"/pin-red.png",
+        pin:"/pin-cyan.png",
         colors:"#B0D9B1",
         heading:"first",
         discrip:"hellonsfbafbba fafb "
@@ -74,7 +74,7 @@ const notes=
     },
     {
         id:10,
-        pin:"/pin-red.png",
+        pin:"/pin-yellow.png",
         colors:"#B0D9B1",
         heading:"first",
         discrip:"hellonsfbafbba fafb "
