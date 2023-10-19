@@ -105,8 +105,8 @@ const Stickynote = () => {
             />
           </div>
           <div className="add-remove">
-          <button onClick={handleAddNote}  className="AddCircleIcon"><AddCircleIcon/></button>
-          <button onClick={handleCancelNote } className="RemoveCircleIcon" ><RemoveCircleIcon/></button>
+          <button onClick={handleAddNote}  className="RemoveCircleIcon"   >add</button>
+          <button onClick={handleCancelNote } className="RemoveCircleIcon" >cancle</button>
           </div>
         </div>
       ) : (
