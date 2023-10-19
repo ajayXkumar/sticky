@@ -17,16 +17,15 @@
 
   .pin{
     display: block;
-    position: relative;
+    position:relative;
     margin-top: -40px;
     margin-left: 230px;
   }
   .heading{
-    width: 50px;
     margin: 0px;
+    margin-bottom:2px;
     font-size: 1.3rem;
     font-weight: bold;
-    display: block;
   }
   .newnotes{
     position:fixed;
@@ -99,4 +98,10 @@
     height: 70px;
     border-radius: 70px;
 
+  }
+  .time{
+    position: absolute;
+    margin-top: -20px;
+    font-size: small;
+    margin-left: 210px;
   }

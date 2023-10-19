@@ -6,16 +6,21 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 const Stickynote = () => {
   const [showForm, setShowForm] = useState(false);
   const [note, setNotes] = useState(notes);
-  const [newNote, setNewNote] = useState({ heading: "", pin:"",discrip: "" });
+  const [newNote, setNewNote] = useState({ heading: "", time:"",pin:"",discrip: "" });
 
   const handleAddNote = () => {
     if (newNote.heading && newNote.discrip ) {
-      setNotes([...notes, newNote]);
-      setNewNote({ heading: "",pin:"", discrip: "" });
+        const currdate=new Date();
+        const day=currdate.getDay();
+        const month=currdate.getMonth()+1;
+        const year=currdate.getFullYear()-2000;
+        newNote.time = `${day}/${month}/${year}`
+      setNotes([newNote,...notes]);
+      setNewNote({ heading: "",time:"",pin:"", discrip: "" });
       setShowForm(false);
     }
   };
-
+  
   const handleCancelNote = () => {
     setShowForm(false);
   };
@@ -25,6 +30,7 @@ const Stickynote = () => {
       {note.map((item, idx) => (
         <div className="sticky-notes" key={idx}>
           <div>
+             <p className="time"><i>{item.time}</i></p>
             <p className="heading">{item.heading}</p>
             <img
               src={item.pin}
@@ -99,7 +105,7 @@ const Stickynote = () => {
             />
           </div>
           <div className="add-remove">
-          <button onClick={handleAddNote} className="AddCircleIcon"><AddCircleIcon/></button>
+          <button onClick={handleAddNote}  className="AddCircleIcon"><AddCircleIcon/></button>
           <button onClick={handleCancelNote } className="RemoveCircleIcon" ><RemoveCircleIcon/></button>
           </div>
         </div>
