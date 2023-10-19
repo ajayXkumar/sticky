@@ -1,0 +1,102 @@
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.sticky-notes {
+    margin:40px;
+    width: 250px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #a7a7a7; 
+    border-radius: 5px; 
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2); 
+    overflow: hidden;
+    text-align: left;
+  }
+
+  .pin{
+    display: block;
+    position: relative;
+    margin-top: -40px;
+    margin-left: 230px;
+  }
+  .heading{
+    width: 50px;
+    margin: 0px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: block;
+  }
+  .newnotes{
+    position:fixed;
+    width: 50px;
+    height: 50px;
+    right: 70px;
+    bottom: 70px;
+  }
+
+.form{
+    z-index: 200;
+    position: absolute;
+    margin-top: 100px;
+    width: 350px;
+    padding-top: 50px;
+    background-color: white;
+    border: 1px solid #a7a7a7; 
+    border-radius: 5px; 
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2); 
+}
+.area{
+    width: 270px;
+    padding: 4px;
+    display: inline;
+    border: 1px solid black;
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(50, 50, 50, 0.5); 
+    backdrop-filter: blur(0.5px);
+    z-index: 1; 
+  }
+  
+  .button-css{
+    width: 24px;
+    height: 24px;
+    margin-left: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+
+  }
+  .AddCircleIcon{
+     background: none;
+     border: none;
+     height: 60px;
+     margin-left: 30px;
+  }
+  .add-remove{
+    margin-left: 80px;
+  }
+  .RemoveCircleIcon{
+    background: none;
+     border: none;
+     margin-left: 30px;
+  }
+  .newnotes{
+    background-color: black;
+    color: white;
+    font-size: 40px;
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+
+  }
