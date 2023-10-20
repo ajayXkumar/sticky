@@ -53,6 +53,7 @@ const Stickynote = () => {
               </p>
               <p className="heading">{item.heading}</p>
               <div
+                tooltip ="unpin"
                 onClick={() => handleUnpin(item)}
                 style={{ cursor: "pointer" }}
               >
@@ -104,7 +105,7 @@ const Stickynote = () => {
             htmlFor="description"
             style={{ color: "black ", fontWeight: "600", marginLeft: "30px" }}
           >
-            choose one pin
+            Select pin
           </label>
           <div className="color-option">
             <img
@@ -143,7 +144,7 @@ const Stickynote = () => {
               add
             </button>
             <button onClick={handleCancelNote} className="RemoveCircleIcon">
-              cancle
+              cancel
             </button>
           </div>
         </div>
