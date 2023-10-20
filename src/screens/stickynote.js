@@ -35,21 +35,17 @@ const Stickynote = () => {
   };
 
   const handleUnpin = (noteToUnpin) => {
-    const updatedNotes = notes.map((note) => {
-      if (note === noteToUnpin) {
-        return { ...note, pin: false };
-      }
-      return note;
-    });
-
+    const updatedNotes = notes.filter((note) => note !== noteToUnpin);
     setNotes(updatedNotes);
-    localStorage.setItem("notes", JSON.stringify(updatedNotes));
+    localStorage.setItem('notes', JSON.stringify(updatedNotes));
   };
+  
 
   return (
     
     <div className="main">
-      {notes.map((item, idx) => (
+      {notes.size ==0 ? <p>add new note</p> : 
+      notes.map((item, idx) => (
         <div className="sticky-notes" key={idx}>
           <div>
             <p className="time">
@@ -66,7 +62,7 @@ const Stickynote = () => {
           <p>{item.discrip}</p>
         </div>
       ))}
-    
+     
       {showForm && <div className="overlay"></div>}
 
       {showForm ? (
