@@ -37,32 +37,33 @@ const Stickynote = () => {
   const handleUnpin = (noteToUnpin) => {
     const updatedNotes = notes.filter((note) => note !== noteToUnpin);
     setNotes(updatedNotes);
-    localStorage.setItem('notes', JSON.stringify(updatedNotes));
+    localStorage.setItem("notes", JSON.stringify(updatedNotes));
   };
-  
 
   return (
-    
     <div className="main">
-      {notes.size ==0 ? <p>add new note</p> : 
-      notes.map((item, idx) => (
-        <div className="sticky-notes" key={idx}>
-          <div>
-            <p className="time">
-              <i>{item.time}</i>
-            </p>
-            <p className="heading">{item.heading}</p>
-            <div
-              onClick={() => handleUnpin(item)} 
-              style={{ cursor: "pointer" }}
-            >
-              <img src={item.pin} width="23px" className="pin" />
+      {notes.length == 0 ? (
+        <p style={{ color: "black",margin:"auto" ,marginTop:"300px",fontSize:"40px",fontWeight:"bold"}}>add new note</p>
+      ) : (
+        notes.map((item, idx) => (
+          <div className="sticky-notes" key={idx}>
+            <div>
+              <p className="time">
+                <i>{item.time}</i>
+              </p>
+              <p className="heading">{item.heading}</p>
+              <div
+                onClick={() => handleUnpin(item)}
+                style={{ cursor: "pointer" }}
+              >
+                <img src={item.pin} width="23px" className="pin" />
+              </div>
             </div>
+            <p>{item.discrip}</p>
           </div>
-          <p>{item.discrip}</p>
-        </div>
-      ))}
-     
+        ))
+      )}
+
       {showForm && <div className="overlay"></div>}
 
       {showForm ? (
@@ -146,13 +147,11 @@ const Stickynote = () => {
             </button>
           </div>
         </div>
-        
       ) : (
         <button className="newnotes" onClick={() => setShowForm(true)}>
           +
         </button>
       )}
-      
     </div>
   );
 };
