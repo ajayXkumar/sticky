@@ -1,122 +1,124 @@
-.main{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  padding-left: 10px;
 }
+
 .sticky-notes {
-    margin:40px;
-    width: 250px;
-    padding: 20px;
-    background-color: white;
-    border: 1px solid #a7a7a7; 
-    border-radius: 5px; 
-    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2); 
-    overflow: hidden;
-    text-align: left;
-  }
-
-  .pin{
-    display: block;
-    position:relative;
-    margin-top: -40px;
-    margin-left: 230px;
-  }
-  .heading{
-    margin: 0px;
-    margin-bottom:2px;
-    font-size: 1.3rem;
-    font-weight: bold;
-  }
-  .newnotes{
-    position:fixed;
-    width: 50px;
-    height: 50px;
-    right: 70px;
-    bottom: 70px;
-  }
-
-.form{
-    z-index: 200;
-    position: fixed;
-    margin-top: 100px;
-    width: 350px;
-    padding-top: 50px;
-    background-color: white;
-    border: 1px solid #a7a7a7; 
-    border-radius: 5px; 
-    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2); 
+  margin: 40px;
+  width: 250px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #a7a7a7;
+  border-radius: 5px;
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-align: left;
 }
-.area{
-    width: 270px;
-    padding: 4px;
-    display: inline;
-    border: 1px solid black;
-    margin-left: 30px;
-    margin-top: 5px;
-    margin-bottom: 10px;
+
+.pin {
+  display: block;
+  position: relative;
+  margin-top: -40px;
+  margin-left: 230px;
+}
+.heading {
+  margin: 0px;
+  margin-bottom: 2px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.newnotes {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 70px;
+  bottom: 70px;
+}
+
+.form {
+  z-index: 200;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  padding-top: 50px;
+  background-color: white;
+  border: 1px solid #a7a7a7;
+  border-radius: 5px;
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
+}
+.area {
+  width: 270px;
+  padding: 4px;
+  display: inline;
+  border: 1px solid black;
+  margin-left: 30px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(50, 50, 50, 0.5); 
-    backdrop-filter: blur(0.5px);
-    z-index: 1; 
-  }
-  
-  .button-css{
-    width: 24px;
-    height: 24px;
-    margin-left: 30px;
-    margin-top: 10px;
-    cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(50, 50, 50, 0.5);
+  backdrop-filter: blur(0.5px);
+  z-index: 1;
+}
 
-  }
- 
-  .add-remove{
-    margin-left: 25px;
-    margin-top: 15px;
-    margin-bottom: 20px;
-  }
-  .RemoveCircleIcon{
-    background:rgb(255, 255, 255);
-     border: none;
-     height: 30px;
-     width: 100px;
-     margin-left: 30px;
-     border-radius: 30px;
-     color: rgb(0, 0, 0);
-     font-size: large;
-     border: 1px solid black;  
-     transform: 3s hover;
-  }
+.button-css {
+  width: 24px;
+  height: 24px;
+  margin-left: 30px;
+  margin-top: 10px;
+  cursor: pointer;
+}
 
-  .RemoveCircleIcon:hover{
-    background:rgb(0, 0, 0);
-    border: none;
-    height: 30px;
-    width: 100px;
-    margin-left: 30px;
-    border-radius: 30px;
-    color: rgb(255, 255, 255);
-    font-size: large;
-  }
-  .newnotes{
-    background-color: black;
-    color: white;
-    font-size: 40px;
-    padding: 5px;
-    width: 70px;
-    height: 70px;
-    border-radius: 70px;
+.add-remove {
+  margin-left: 25px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.RemoveCircleIcon {
+  background: rgb(255, 255, 255);
+  border: none;
+  height: 30px;
+  width: 100px;
+  margin-left: 30px;
+  border-radius: 30px;
+  color: rgb(0, 0, 0);
+  font-size: large;
+  border: 1px solid black;
+  transform: 3s hover;
+}
 
-  }
-  .time{
-    position: absolute;
-    margin-top: -20px;
-    font-size: small;
-    margin-left: 210px;
-  }
+.RemoveCircleIcon:hover {
+  background: rgb(0, 0, 0);
+  border: none;
+  height: 30px;
+  width: 100px;
+  margin-left: 30px;
+  border-radius: 30px;
+  color: rgb(255, 255, 255);
+  font-size: large;
+}
+.newnotes {
+  background-color: black;
+  color: white;
+  font-size: 40px;
+  padding: 5px;
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+}
+.time {
+  position: absolute;
+  margin-top: -20px;
+  font-size: small;
+  margin-left: 210px;
+}
