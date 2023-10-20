@@ -14,7 +14,7 @@ const Stickynote = () => {
   });
 
   const handleAddNote = () => {
-    if (newNote.heading && newNote.discrip) {
+    if (newNote.heading && newNote.discrip && newNote.pin) {
       const currdate = new Date();
       const day = currdate.getDate();
       const month = currdate.getMonth() + 1;
@@ -109,32 +109,32 @@ const Stickynote = () => {
           <div className="color-option">
             <img
               src="/pin-red.png"
-              className="button-css"
+              className={`button-css${newNote.pin === "/pin-red.png" ? "-selected" : ""}`}
               onClick={(e) => setNewNote({ ...newNote, pin: "/pin-red.png" })}
             />
             <img
               src="/pin-purple.png"
-              className="button-css"
+              className={`button-css${newNote.pin === "/pin-purple.png" ? "-selected" : ""}`}
               onClick={() => setNewNote({ ...newNote, pin: "/pin-purple.png" })}
             />
             <img
               src="/pin-green.png"
-              className="button-css"
+              className={`button-css${newNote.pin === "/pin-green.png" ? "-selected" : ""}`}
               onClick={() => setNewNote({ ...newNote, pin: "/pin-green.png" })}
             />
             <img
               src="/pin-yellow.png"
-              className="button-css"
+              className={`button-css${newNote.pin === "/pin-yellow.png" ? "-selected" : ""}`}
               onClick={() => setNewNote({ ...newNote, pin: "/pin-yellow.png" })}
             />
             <img
               src="/pin-cyan.png"
-              className="button-css"
+              className={`button-css${newNote.pin === "/pin-cyan.png" ? "-selected" : ""}`}
               onClick={() => setNewNote({ ...newNote, pin: "/pin-cyan.png" })}
             />
             <img
               src="/pin-pink.png"
-              className="button-css"
+              className={`button-css${newNote.pin === "/pin-pink.png" ? "-selected" : ""}`}
               onClick={() => setNewNote({ ...newNote, pin: "/pin-pink.png" })}
             />
           </div>
