@@ -81,8 +81,8 @@
 .button-css-selected{
   width: 24px;
   height: 24px;
-  margin-left: 25px;
-  margin-top: 17px;
+  margin-left: 30px;
+  margin-top: 15px;
   cursor: pointer;
   padding: 4px;
   border: .7px solid rgb(71, 71, 71);
@@ -132,4 +132,25 @@
   margin-top: -20px;
   font-size: small;
   margin-left: 210px;
+}
+
+.navbar{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding: 30px;
+  padding-right: 60px;
+}
+
+.color-option:after{
+  background-color: black;
+  border:1px solid black;
+}
+.but{
+  width: 30px;
+  height: 30px;
+  margin-top: 12px;
+  background:radial-gradient(rgb(255, 77, 101)rgb(0, 221, 255),red,rgb(164, 0, 164),yellow);
+  border: none;
+  border-radius: 30px;
 }

@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import "../styles/sticky-notes.css";
 const Stickynote = () => {
   const [showForm, setShowForm] = useState(false);
+  const [filteredNotes, setFilteredNotes] = useState([]);
   const [notes, setNotes] = useState(() => {
     const storedNotes = localStorage.getItem("notes");
     return storedNotes ? JSON.parse(storedNotes) : [];
   });
+  const [colored, setcolored] = useState("");
+
   const [newNote, setNewNote] = useState({
     heading: "",
     time: "",
@@ -40,12 +43,122 @@ const Stickynote = () => {
     localStorage.setItem("notes", JSON.stringify(updatedNotes));
   };
 
+  const showred = () => {
+    const rednotes = notes.filter((note) => note.pin == "/pin-red.png");
+    setcolored("/pin-red.png");
+    setFilteredNotes(rednotes);
+  };
+  const showcyan = () => {
+    const rednotes = notes.filter((note) => note.pin == "/pin-cyan.png");
+    setcolored("/pin-cyan.png");
+    setFilteredNotes(rednotes);
+  };
+  const showyellow = () => {
+    const rednotes = notes.filter((note) => note.pin == "/pin-yellow.png");
+    setcolored("/pin-yellow.png");
+    setFilteredNotes(rednotes);
+  };
+  const showpink = () => {
+    const rednotes = notes.filter((note) => note.pin == "/pin-pink.png");
+    setcolored("/pin-pink.png");
+    setFilteredNotes(rednotes);
+  };
+  const showgreen = () => {
+    const rednotes = notes.filter((note) => note.pin == "/pin-green.png");
+    setcolored("/pin-green.png");
+    setFilteredNotes(rednotes);
+  };
+  const showpurple = () => {
+    const rednotes = notes.filter((note) => note.pin == "/pin-purple.png");
+    setcolored("/pin-purple.png");
+    setFilteredNotes(rednotes);
+  };
+
+  const allcolor = () => {
+    const rednotes = notes;
+    setcolored("all");
+    setFilteredNotes(rednotes);
+  };
+
   return (
     <div className="main">
+      <div className="navbar">
+        <div className="color-option">
+          <img
+            src="/all.png"
+            className={`button-css${colored === "all" ? "-selected" : ""}`}
+            onClick={(e) => allcolor()}
+          />
+        </div>
+        <div className="color-option">
+          <img
+            src="/pin-red.png"
+            className={`button-css${
+              colored === "/pin-red.png" ? "-selected" : ""
+            }`}
+            onClick={(e) => showred()}
+          />
+        </div>
+        <div className="color-option">
+          <img
+            src="/pin-cyan.png"
+            className={`button-css${
+              colored === "/pin-cyan.png" ? "-selected" : ""
+            }`}
+            onClick={(e) => showcyan()}
+          />
+        </div>
+        <div className="color-option">
+          <img
+            src="/pin-pink.png"
+            className={`button-css${
+              colored === "/pin-pink.png" ? "-selected" : ""
+            }`}
+            onClick={(e) => showpink()}
+          />
+        </div>
+        <div className="color-option">
+          <img
+            src="/pin-yellow.png"
+            className={`button-css${
+              colored === "/pin-yellow.png" ? "-selected" : ""
+            }`}
+            onClick={(e) => showyellow()}
+          />
+        </div>
+        <div className="color-option">
+          <img
+            src="/pin-green.png"
+            className={`button-css${
+              colored === "/pin-green.png" ? "-selected" : ""
+            }`}
+            onClick={(e) => showgreen()}
+          />
+        </div>
+        <div className="color-option">
+          <img
+            src="/pin-purple.png"
+            className={`button-css${
+              colored === "/pin-purple.png" ? "-selected" : ""
+            }`}
+            onClick={(e) => showpurple()}
+          />
+        </div>
+      </div>
       {notes.length == 0 ? (
-        <p style={{ color: "black",margin:"auto" ,marginTop:"300px",fontSize:"40px",fontWeight:"bold"}}>add new note</p>
+        <p
+          style={{
+            color: "black",
+            margin: "auto",
+            marginTop: "300px",
+            fontSize: "40px",
+            fontWeight: "bold",
+          }}
+        >
+          add new note
+        </p>
       ) : (
-        notes.map((item, idx) => (
+        filteredNotes.map((item, idx) => (
           <div className="sticky-notes" key={idx}>
             <div>
               <p className="time">
@@ -53,7 +166,7 @@ const Stickynote = () => {
               </p>
               <p className="heading">{item.heading}</p>
               <div
-                tooltip ="unpin"
+                tooltip="unpin"
                 onClick={() => handleUnpin(item)}
                 style={{ cursor: "pointer" }}
               >
@@ -110,32 +223,44 @@ const Stickynote = () => {
           <div className="color-option">
             <img
               src="/pin-red.png"
-              className={`button-css${newNote.pin === "/pin-red.png" ? "-selected" : ""}`}
+              className={`button-css${
+                newNote.pin === "/pin-red.png" ? "-selected" : ""
+              }`}
               onClick={(e) => setNewNote({ ...newNote, pin: "/pin-red.png" })}
             />
             <img
               src="/pin-purple.png"
-              className={`button-css${newNote.pin === "/pin-purple.png" ? "-selected" : ""}`}
+              className={`button-css${
+                newNote.pin === "/pin-purple.png" ? "-selected" : ""
+              }`}
               onClick={() => setNewNote({ ...newNote, pin: "/pin-purple.png" })}
             />
             <img
               src="/pin-green.png"
-              className={`button-css${newNote.pin === "/pin-green.png" ? "-selected" : ""}`}
+              className={`button-css${
+                newNote.pin === "/pin-green.png" ? "-selected" : ""
+              }`}
               onClick={() => setNewNote({ ...newNote, pin: "/pin-green.png" })}
             />
             <img
               src="/pin-yellow.png"
-              className={`button-css${newNote.pin === "/pin-yellow.png" ? "-selected" : ""}`}
+              className={`button-css${
+                newNote.pin === "/pin-yellow.png" ? "-selected" : ""
+              }`}
               onClick={() => setNewNote({ ...newNote, pin: "/pin-yellow.png" })}
             />
             <img
               src="/pin-cyan.png"
-              className={`button-css${newNote.pin === "/pin-cyan.png" ? "-selected" : ""}`}
+              className={`button-css${
+                newNote.pin === "/pin-cyan.png" ? "-selected" : ""
+              }`}
               onClick={() => setNewNote({ ...newNote, pin: "/pin-cyan.png" })}
             />
             <img
               src="/pin-pink.png"
-              className={`button-css${newNote.pin === "/pin-pink.png" ? "-selected" : ""}`}
+              className={`button-css${
+                newNote.pin === "/pin-pink.png" ? "-selected" : ""
+              }`}
               onClick={() => setNewNote({ ...newNote, pin: "/pin-pink.png" })}
             />
           </div>
