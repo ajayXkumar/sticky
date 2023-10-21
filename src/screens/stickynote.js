@@ -81,7 +81,7 @@ const Stickynote = () => {
   };
 
   return (
-    <div className="main">
+    <div>
       <div className="navbar">
         <div className="color-option">
           <img
@@ -144,140 +144,149 @@ const Stickynote = () => {
             onClick={(e) => showpurple()}
           />
         </div>
-      </div>
-      {notes.length == 0 ? (
-        <p
-          style={{
-            color: "black",
-            margin: "auto",
-            marginTop: "300px",
-            fontSize: "40px",
-            fontWeight: "bold",
-          }}
-        >
-          add new note
-        </p>
-      ) : (
-        filteredNotes.map((item, idx) => (
-          <div className="sticky-notes" key={idx}>
-            <div>
-              <p className="time">
-                <i>{item.time}</i>
-              </p>
-              <p className="heading">{item.heading}</p>
-              <div
-                tooltip="unpin"
-                onClick={() => handleUnpin(item)}
-                style={{ cursor: "pointer" }}
-              >
-                <img src={item.pin} width="23px" className="pin" />
-              </div>
-            </div>
-            <p>{item.discrip}</p>
-          </div>
-        ))
-      )}
-
-      {showForm && <div className="overlay"></div>}
-
-      {showForm ? (
-        <div className="form">
-          <label
-            htmlFor="heading"
-            style={{ color: "black ", fontWeight: "600", marginLeft: "30px" }}
-          >
-            Heading
-          </label>
-          <input
-            id="heading"
-            className="area"
-            type="text"
-            placeholder="xyz"
-            value={newNote.heading}
-            onChange={(e) =>
-              setNewNote({ ...newNote, heading: e.target.value })
-            }
-          />
-
-          <label
-            htmlFor="description"
-            style={{ color: "black ", fontWeight: "600", marginLeft: "30px" }}
-          >
-            Description
-          </label>
-          <input
-            id="description"
-            className="area"
-            placeholder="abc"
-            value={newNote.discrip}
-            onChange={(e) =>
-              setNewNote({ ...newNote, discrip: e.target.value })
-            }
-          />
-          <label
-            htmlFor="description"
-            style={{ color: "black ", fontWeight: "600", marginLeft: "30px" }}
-          >
-            Select pin
-          </label>
-          <div className="color-option">
-            <img
-              src="/pin-red.png"
-              className={`button-css${
-                newNote.pin === "/pin-red.png" ? "-selected" : ""
-              }`}
-              onClick={(e) => setNewNote({ ...newNote, pin: "/pin-red.png" })}
-            />
-            <img
-              src="/pin-purple.png"
-              className={`button-css${
-                newNote.pin === "/pin-purple.png" ? "-selected" : ""
-              }`}
-              onClick={() => setNewNote({ ...newNote, pin: "/pin-purple.png" })}
-            />
-            <img
-              src="/pin-green.png"
-              className={`button-css${
-                newNote.pin === "/pin-green.png" ? "-selected" : ""
-              }`}
-              onClick={() => setNewNote({ ...newNote, pin: "/pin-green.png" })}
-            />
-            <img
-              src="/pin-yellow.png"
-              className={`button-css${
-                newNote.pin === "/pin-yellow.png" ? "-selected" : ""
-              }`}
-              onClick={() => setNewNote({ ...newNote, pin: "/pin-yellow.png" })}
-            />
-            <img
-              src="/pin-cyan.png"
-              className={`button-css${
-                newNote.pin === "/pin-cyan.png" ? "-selected" : ""
-              }`}
-              onClick={() => setNewNote({ ...newNote, pin: "/pin-cyan.png" })}
-            />
-            <img
-              src="/pin-pink.png"
-              className={`button-css${
-                newNote.pin === "/pin-pink.png" ? "-selected" : ""
-              }`}
-              onClick={() => setNewNote({ ...newNote, pin: "/pin-pink.png" })}
-            />
-          </div>
-          <div className="add-remove">
-            <button onClick={handleAddNote} className="RemoveCircleIcon">
-              add
-            </button>
-            <button onClick={handleCancelNote} className="RemoveCircleIcon">
-              cancel
-            </button>
-          </div>
         </div>
-      ) : (
-        <button className="newnotes" onClick={() => setShowForm(true)}>
-          +
-        </button>
-      )}
+        <div className="main">
+        {notes.length == 0 ? (
+          <p
+            style={{
+              color: "black",
+              margin: "auto",
+              marginTop: "300px",
+              fontSize: "40px",
+              fontWeight: "bold",
+            }}
+          >
+            add new note
+          </p>
+        ) : (
+          filteredNotes.map((item, idx) => (
+            <div className="sticky-notes" key={idx}>
+              <div>
+                <p className="time">
+                  <i>{item.time}</i>
+                </p>
+                <p className="heading">{item.heading}</p>
+                <div
+                  tooltip="unpin"
+                  onClick={() => handleUnpin(item)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <img src={item.pin} width="23px" className="pin" />
+                </div>
+              </div>
+              <p>{item.discrip}</p>
+            </div>
+          ))
+        )}
+  
+        {showForm && <div className="overlay"></div>}
+
+        {showForm ? (
+          <div className="form">
+            <label
+              htmlFor="heading"
+              style={{ color: "black ", fontWeight: "600", marginLeft: "30px" }}
+            >
+              Heading
+            </label>
+            <input
+              id="heading"
+              className="area"
+              type="text"
+              placeholder="xyz"
+              value={newNote.heading}
+              onChange={(e) =>
+                setNewNote({ ...newNote, heading: e.target.value })
+              }
+            />
+
+            <label
+              htmlFor="description"
+              style={{ color: "black ", fontWeight: "600", marginLeft: "30px" }}
+            >
+              Description
+            </label>
+            <input
+              id="description"
+              className="area"
+              placeholder="abc"
+              value={newNote.discrip}
+              onChange={(e) =>
+                setNewNote({ ...newNote, discrip: e.target.value })
+              }
+            />
+            <label
+              htmlFor="description"
+              style={{ color: "black ", fontWeight: "600", marginLeft: "30px" }}
+            >
+              Select pin
+            </label>
+            <div className="color-option">
+              <img
+                src="/pin-red.png"
+                className={`button-css${
+                  newNote.pin === "/pin-red.png" ? "-selected" : ""
+                }`}
+                onClick={(e) => setNewNote({ ...newNote, pin: "/pin-red.png" })}
+              />
+              <img
+                src="/pin-purple.png"
+                className={`button-css${
+                  newNote.pin === "/pin-purple.png" ? "-selected" : ""
+                }`}
+                onClick={() =>
+                  setNewNote({ ...newNote, pin: "/pin-purple.png" })
+                }
+              />
+              <img
+                src="/pin-green.png"
+                className={`button-css${
+                  newNote.pin === "/pin-green.png" ? "-selected" : ""
+                }`}
+                onClick={() =>
+                  setNewNote({ ...newNote, pin: "/pin-green.png" })
+                }
+              />
+              <img
+                src="/pin-yellow.png"
+                className={`button-css${
+                  newNote.pin === "/pin-yellow.png" ? "-selected" : ""
+                }`}
+                onClick={() =>
+                  setNewNote({ ...newNote, pin: "/pin-yellow.png" })
+                }
+              />
+              <img
+                src="/pin-cyan.png"
+                className={`button-css${
+                  newNote.pin === "/pin-cyan.png" ? "-selected" : ""
+                }`}
+                onClick={() => setNewNote({ ...newNote, pin: "/pin-cyan.png" })}
+              />
+              <img
+                src="/pin-pink.png"
+                className={`button-css${
+                  newNote.pin === "/pin-pink.png" ? "-selected" : ""
+                }`}
+                onClick={() => setNewNote({ ...newNote, pin: "/pin-pink.png" })}
+              />
+            </div>
+            <div className="add-remove">
+              <button onClick={handleAddNote} className="RemoveCircleIcon">
+                add
+              </button>
+              <button onClick={handleCancelNote} className="RemoveCircleIcon">
+                cancel
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button className="newnotes" onClick={() => setShowForm(true)}>
+            +
+          </button>
+        )}
+        </div>
+      
     </div>
   );
 };

@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: left;
   padding-left: 10px;
+  padding-top: 50px;
 }
 
 .sticky-notes {
@@ -137,9 +138,12 @@
 .navbar{
   width: 100%;
   display: flex;
-  justify-content: end;
-  padding: 30px;
-  padding-right: 60px;
+  justify-content: center;
+  padding: 10px;
+  position: fixed;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 .color-option:after{
