@@ -37,6 +37,10 @@ const Stickynote = () => {
     setShowForm(false);
   };
 
+  useEffect(()=>{
+    setFilteredNotes(notes);
+    setcolored('all')
+  },[notes])
   const handleUnpin = (noteToUnpin) => {
     const updatedNotes = notes.filter((note) => note !== noteToUnpin);
     setNotes(updatedNotes);
