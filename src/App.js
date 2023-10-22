@@ -7,6 +7,7 @@ function App() {
        <BrowserRouter>
          <Routes>
           <Route path="/" element={<Stickynote/>}/>
+          
          </Routes>
        </BrowserRouter>
     </div>

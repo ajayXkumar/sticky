@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../styles/sticky-notes.css";
+
+import OpenAI from 'openai';
+const apiKey = "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";
+console.log(apiKey)
 const Stickynote = () => {
   const [showForm, setShowForm] = useState(false);
   const [filteredNotes, setFilteredNotes] = useState([]);
@@ -16,31 +20,59 @@ const Stickynote = () => {
     discrip: "",
   });
 
-  const handleAddNote = () => {
-    if (newNote.heading && newNote.discrip && newNote.pin) {
+  const openai = new OpenAI({
+    apiKey, dangerouslyAllowBrowser: true
+  });
+
+  const handleAddNote = async () => {
+    if (newNote.heading && newNote.pin) {
       const currdate = new Date();
       const day = currdate.getDate();
       const month = currdate.getMonth() + 1;
       const year = currdate.getFullYear() - 2000;
       newNote.time = `${day}/${month}/${year}`;
 
+      if (!newNote.discrip) {
+        try {
+          const chatCompletion = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [{"role": "user", "content":`generate a to the point discription about : ${newNote.heading} in just 30 word`}],
+          });
+
+          const description = chatCompletion.choices[0].message.content;
+          console.log(chatCompletion.choices[0].message.content);
+          newNote.discrip = description; 
+          console.log(description)
+          saveNote();
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      } else {
+      
+        saveNote();
+      }
+    }
+  
+    function saveNote() {
       const updatedNotes = [newNote, ...notes];
       setNotes(updatedNotes);
-
+  
       localStorage.setItem("notes", JSON.stringify(updatedNotes));
-
+  
       setNewNote({ heading: "", time: "", pin: "", discrip: "" });
       setShowForm(false);
     }
   };
+  
+  
   const handleCancelNote = () => {
     setShowForm(false);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     setFilteredNotes(notes);
-    setcolored('all')
-  },[notes])
+    setcolored("all");
+  }, [notes]);
   const handleUnpin = (noteToUnpin) => {
     const updatedNotes = notes.filter((note) => note !== noteToUnpin);
     setNotes(updatedNotes);
@@ -148,8 +180,8 @@ const Stickynote = () => {
             onClick={(e) => showpurple()}
           />
         </div>
-        </div>
-        <div className="main">
+      </div>
+      <div className="main">
         {notes.length == 0 ? (
           <p
             style={{
@@ -182,7 +214,7 @@ const Stickynote = () => {
             </div>
           ))
         )}
-  
+
         {showForm && <div className="overlay"></div>}
 
         {showForm ? (
@@ -213,7 +245,7 @@ const Stickynote = () => {
             <input
               id="description"
               className="area"
-              placeholder="abc"
+              placeholder="Optional: Let us generate content for you"
               value={newNote.discrip}
               onChange={(e) =>
                 setNewNote({ ...newNote, discrip: e.target.value })
@@ -289,8 +321,7 @@ const Stickynote = () => {
             +
           </button>
         )}
-        </div>
-      
+      </div>
     </div>
   );
 };
