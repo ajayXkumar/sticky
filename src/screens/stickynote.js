@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/sticky-notes.css";
 
 import OpenAI from 'openai';
-const apiKey = "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";
-console.log(apiKey)
+const apiKey ="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"
 const Stickynote = () => {
   const [showForm, setShowForm] = useState(false);
   const [filteredNotes, setFilteredNotes] = useState([]);
