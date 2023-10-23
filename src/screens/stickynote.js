@@ -4,7 +4,7 @@ import OpenAI from "openai";
 
 
 const apiKey=process.env.REACT_APP_API_KEY
-console.log(apiKey)
+
 const Stickynote = () => {
   const [showForm, setShowForm] = useState(false);
   const [filteredNotes, setFilteredNotes] = useState([]);
