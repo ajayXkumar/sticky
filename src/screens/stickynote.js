@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../styles/sticky-notes.css";
+import OpenAI from "openai";
 
-import OpenAI from 'openai';
-const apiKey ="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"
+
+const apiKey=process.env.REACT_APP_API_KEY
+console.log(apiKey)
 const Stickynote = () => {
   const [showForm, setShowForm] = useState(false);
   const [filteredNotes, setFilteredNotes] = useState([]);
@@ -20,7 +22,8 @@ const Stickynote = () => {
   });
 
   const openai = new OpenAI({
-    apiKey, dangerouslyAllowBrowser: true
+    apiKey,
+    dangerouslyAllowBrowser: true,
   });
 
   const handleAddNote = async () => {
@@ -35,35 +38,38 @@ const Stickynote = () => {
         try {
           const chatCompletion = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
-            messages: [{"role": "user", "content":`generate a to the point discription about : ${newNote.heading} in just 30 word`}],
+            messages: [
+              {
+                role: "user",
+                content: `generate a to the point discription about : ${newNote.heading} in just 30 word`,
+              },
+            ],
           });
 
           const description = chatCompletion.choices[0].message.content;
           console.log(chatCompletion.choices[0].message.content);
-          newNote.discrip = description; 
-          console.log(description)
+          newNote.discrip = description;
+
           saveNote();
         } catch (error) {
           console.error("Error:", error);
         }
       } else {
-      
         saveNote();
       }
     }
-  
+
     function saveNote() {
       const updatedNotes = [newNote, ...notes];
       setNotes(updatedNotes);
-  
+
       localStorage.setItem("notes", JSON.stringify(updatedNotes));
-  
+
       setNewNote({ heading: "", time: "", pin: "", discrip: "" });
       setShowForm(false);
     }
   };
-  
-  
+
   const handleCancelNote = () => {
     setShowForm(false);
   };
